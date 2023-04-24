@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SmartLabs</string>
+
+    <!-- START Strings for On Boarding Screen -->
+    <!--Titles-->
+    <string name="first_slide_title">Анализы</string>
+    <string name="second_slide_title">Уведомления</string>
+    <string name="third_slide_title">Мониторинг</string>
+
+    <!--Descriptions-->
+    <string name="first_slide_desc">Экспресс сбор и получение проб</string>
+    <string name="second_slide_desc">Вы быстро узнаете о результатах</string>
+    <string name="third_slide_desc">Наши врачи всегда наблюдают за вашими показателями здоровья</string>
+
+    <!--Buttons-->
+    <string name="skip_btn">Пропустить</string>
+    <string name="finish_btn">Завершить</string>
+    <!-- END Strings for On Boarding Screen -->
+
+</resources>

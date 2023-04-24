@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- Приветсвенный экран -->
+    <style name="OnBoarding_Title" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/lato_semibold</item>
+        <item name="android:textColor">@color/smartlab_green</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="OnBoarding_Description" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">@color/smartlab_grey</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="OnBoarding_Btn" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/lato_semibold</item>
+        <item name="android:textColor">@color/smartlab_lightblue</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Просто текст -->
+    <style name="TextGrey_SF_14sp" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">@color/smartlab_grey</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextGrey_SF_15sp" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">@color/smartlab_grey</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="TextBlack_SF_15sp" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Заголовки -->
+    <style name="TextTitleScreen_SF_24sp" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="TextTitle_SF_17sp" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="TextTitleGrey_SF_17sp" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textColor">@color/smartlab_grey</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="TextTitle_SF_20sp" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
+    <!-- Кнопки -->
+    <style name="TextBtnWhite_SF_17sp" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="TextBtnWhite_SF_14sp" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextBtnBlue_SF_14sp" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textColor">@color/smartlab_blue</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>
