@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
     <!-- Приветсвенный экран -->
     <style name="OnBoarding_Title" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/lato_semibold</item>
