@@ -17,4 +17,14 @@
     <string name="finish_btn">Завершить</string>
     <!-- END Strings for On Boarding Screen -->
 
+    <!-- START  SignIn Screen -->
+    <string name="signin_title_text">Добро пожаловать!</string>
+    <string name="signin_description_text">Войдите, чтобы пользоваться функциями приложения</string>
+    <string name="signin_entry_email_text">Вход по E-mail</string>
+    <string name="signin_entry_hint_text">example@email.com</string>
+    <string name="signin_signin_text">Далее</string>
+    <string name="signin_entry_with_text">Иди войдите с помощью</string>
+    <string name="signin_with_yandex_text">Войти с Яндекс</string>
+    <!-- END  SignIn Screen -->
+
 </resources>

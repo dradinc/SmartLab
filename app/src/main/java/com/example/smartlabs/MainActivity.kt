@@ -25,7 +25,8 @@ class MainActivity : AppCompatActivity() {
         onBoardingStatus.observe(this) {onBoardStat ->
             when(onBoardStat) {
                 true -> {
-
+                    val signInScreen = Intent(this@MainActivity, SignInScreen::class.java)
+                    startActivity(signInScreen)
                 }
                 false -> {
                     val onBoardingActivity = Intent(this@MainActivity, OnBoarding::class.java)

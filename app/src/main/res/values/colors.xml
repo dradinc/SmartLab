@@ -10,7 +10,9 @@
 
     <color name="smartlab_blue">#1A6FEE</color>
     <color name="smartlab_lightblue">#57A9FF</color>
+    <color name="smartlab_whiteblue">#C9D4FB</color>
     <color name="smartlab_grey">#939396</color>
     <color name="smartlab_lightgrey">#F5F5F9</color>
+    <color name="smartlab_border_grey">#EBEBEB</color>
     <color name="smartlab_green">#00B712</color>
 </resources>

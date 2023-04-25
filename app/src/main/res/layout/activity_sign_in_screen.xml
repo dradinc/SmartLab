@@ -6,4 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".SignInScreen">
 
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="70dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/hi_emojies"
+                android:contentDescription="@string/app_name"
+                android:layout_marginEnd="15dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/signin_title_text"
+                style="@style/TextTitleScreen_SF_24sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signin_description_text"
+            style="@style/TextBlack_SF_15sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signin_entry_email_text"
+            style="@style/TextGrey_SF_14sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/edit_text_grey"
+            android:layout_marginTop="10dp"
+            android:hint="@string/signin_entry_hint_text"
+            android:textColorHint="@color/smartlab_grey"
+            style="@style/TextBlack_SF_15sp"
+            android:padding="10dp"
+            android:inputType="textEmailAddress"
+            android:autofillHints="" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/signin_signin_text"
+            style="@style/TextBtnWhite_SF_17sp"
+            android:background="@drawable/btn_blue"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/smartlab_whiteblue"
+            android:enabled="false"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signin_entry_with_text"
+        style="@style/TextGrey_SF_15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/signin_with_yandex"
+        android:layout_marginBottom="15dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signin_with_yandex"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/signin_with_yandex_text"
+        style="@style/TextTitle_SF_17sp"
+        android:gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="50dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
