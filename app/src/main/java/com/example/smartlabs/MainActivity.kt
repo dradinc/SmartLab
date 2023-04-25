@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         dataStoreOnBoarding = OnBoardingStatus(this)
         val onBoardingStatus = dataStoreOnBoarding.getOnBoardingStatus().asLiveData()
+        // Получаем данные из памяти
         onBoardingStatus.observe(this) {onBoardStat ->
             when(onBoardStat) {
                 true -> {

@@ -17,16 +17,19 @@ class OnBoardingStatus(context: Context) {
     private var dataStore = context.dataStore
 
     companion object {
+        // Добавляем ключ, по которому будем сохранять данные
         val onBoardingStatus = booleanPreferencesKey(name="ON_BOARDING_STATUS")
     }
 
     suspend fun setOnBoardingStatus(isOnBoardingStatus: Boolean) {
+        // Функция для сохранения данных по ключу
         dataStore.edit { preferences ->
             preferences[onBoardingStatus] = isOnBoardingStatus
         }
     }
 
     fun getOnBoardingStatus(): Flow<Boolean> {
+        // Функция для получения данных по ключу
         return dataStore.data
             .catch { exception ->
                 if (exception is IOException) { Log.e("DATA_STORE_ERROR", "AAAAAAA") }
