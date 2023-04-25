@@ -57,6 +57,7 @@
             style="@style/TextGrey_SF_14sp"/>
 
         <EditText
+            android:id="@+id/entry_email"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/edit_text_grey"
@@ -69,14 +70,16 @@
             android:autofillHints="" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signin_email_btn"
+            style="@style/TextBtnWhite_SF_17sp"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="@string/signin_signin_text"
-            style="@style/TextBtnWhite_SF_17sp"
-            android:background="@drawable/btn_blue"
             android:layout_marginTop="40dp"
+            android:background="@drawable/btn_blue"
             android:backgroundTint="@color/smartlab_whiteblue"
-            android:enabled="false"/>
+            android:backgroundTintMode="src_in"
+            android:enabled="false"
+            android:text="@string/signin_signin_text" />
     </LinearLayout>
 
     <TextView
