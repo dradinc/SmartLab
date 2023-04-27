@@ -20,6 +20,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.example.smartlabs.Common.ApiData
 import com.example.smartlabs.Common.OnBoardingStatus
+import com.example.smartlabs.Common.SignInStatus
 import com.example.smartlabs.databinding.ActivitySignInScreenBinding
 import kotlinx.coroutines.launch
 import okhttp3.Call
@@ -40,17 +41,21 @@ class SignInScreen : AppCompatActivity() {
 
     private lateinit var binding : ActivitySignInScreenBinding
     private lateinit var dataStoreOnBoarding: OnBoardingStatus
+    private lateinit var dataStoreSignInStatus: SignInStatus
+    private var signInStatus = false
+    private lateinit var signInToken: String
     private val email_mask = "[A-Za-z0-9]+@[a-z]+\\.+[a-z]{2,3}"
     private var timer: CountDownTimer? = null
     private var client = OkHttpClient()
-    var callbackOpenEntryCode: (()->Unit)?=null
-    var callbackReapetSendCode: (()->Unit)?=null
-    var callbackSendCode: (()->Unit)?=null
-    var callbackReapetSendCodeStart: (()->Unit)?=null
-    var callbackReapetSendCodeEnd: (()->Unit)?=null
-    var callbackSignInSuccess: (()->Unit)?=null
-    var callbackSignIn: (()->Unit)?=null
-    var callbackSignInError: (()->Unit)?=null
+    private var callbackOpenEntryCode: (()->Unit)?=null
+    private var callbackReapetSendCode: (()->Unit)?=null
+    private var callbackSendCode: (()->Unit)?=null
+    private var callbackReapetSendCodeStart: (()->Unit)?=null
+    private var callbackReapetSendCodeEnd: (()->Unit)?=null
+    private var callbackSignInSuccess: (()->Unit)?=null
+    private var callbackSignIn: (()->Unit)?=null
+    private var callbackSignInError: (()->Unit)?=null
+    private var callbackSignInSaveStatus: (()->Unit)?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,6 +122,30 @@ class SignInScreen : AppCompatActivity() {
                     startActivity(onBoardingActivity)
                     lifecycleScope.launch { dataStoreOnBoarding.setOnBoardingStatus(true) }
                 }
+            }
+        }
+
+        // Данные пользователя
+        dataStoreSignInStatus = SignInStatus(this)
+        dataStoreSignInStatus.getSignInStatus().asLiveData().observe(this) {
+            signInStatus = it
+            when(it){
+                true -> {
+                    startActivity(Intent(this@SignInScreen, MainActivity::class.java))
+                    finish()
+                }
+                false -> {}
+            }
+        }
+        dataStoreSignInStatus.getSignInToken().asLiveData().observe(this) {
+            signInToken = it
+        }
+        callbackSignInSaveStatus = {
+            lifecycleScope.launch {
+                dataStoreSignInStatus.setSignInStatus(
+                    signInStatus,
+                    signInToken
+                )
             }
         }
 
@@ -358,9 +387,14 @@ class SignInScreen : AppCompatActivity() {
 
             override fun onResponse(call: Call, response: Response) {
                 if (response.code == 200) {
+                    val json = JSONObject(response.body.string())
+                    signInStatus = true
+                    signInToken = json.getString("token")
                     Handler(Looper.getMainLooper()).post {
                         // Совершаем обратный вызов
                         callbackSignInSuccess!!.invoke()
+                        callbackSignInSaveStatus!!.invoke()
+                        startActivity(Intent(this@SignInScreen, MainActivity::class.java))
                     }
                 }
                 else if (response.code == 422) {

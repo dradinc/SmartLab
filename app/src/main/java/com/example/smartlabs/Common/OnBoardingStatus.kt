@@ -18,13 +18,13 @@ class OnBoardingStatus(context: Context) {
 
     companion object {
         // Добавляем ключ, по которому будем сохранять данные
-        val onBoardingStatus = booleanPreferencesKey(name="ON_BOARDING_STATUS")
+        val ON_BOARDING_STATUS = booleanPreferencesKey(name="ON_BOARDING_STATUS")
     }
 
     suspend fun setOnBoardingStatus(isOnBoardingStatus: Boolean) {
         // Функция для сохранения данных по ключу
         dataStore.edit { preferences ->
-            preferences[onBoardingStatus] = isOnBoardingStatus
+            preferences[ON_BOARDING_STATUS] = isOnBoardingStatus
         }
     }
 
@@ -37,7 +37,7 @@ class OnBoardingStatus(context: Context) {
             }
             .map {
                 preferences ->
-                val statusOnBoarding = preferences[onBoardingStatus] ?: false
+                val statusOnBoarding = preferences[ON_BOARDING_STATUS] ?: false
                 statusOnBoarding
             }
     }

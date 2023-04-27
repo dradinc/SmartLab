@@ -5,8 +5,8 @@ class ApiData {
     companion object{
         // Ссылка на API
         const val serverUrl = "https://medic.madskill.ru/api"
-        // Ссылки внутри API
 
+        // Ссылки внутри API
         // Данные для авторизации отправляются в header
         const val sendCode = "/sendCode"  // Для получения кода на почту
         const val signIn = "/signin"  // Для авторизации пользователя
