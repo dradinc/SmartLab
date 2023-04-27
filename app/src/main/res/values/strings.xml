@@ -25,6 +25,7 @@
     <string name="signin_signin_text">Далее</string>
     <string name="signin_entry_with_text">Иди войдите с помощью</string>
     <string name="signin_with_yandex_text">Войти с Яндекс</string>
+    <string name="code_with_email_text">Введите код из E-mail</string>
     <!-- END  SignIn Screen -->
 
 </resources>

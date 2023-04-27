@@ -43,13 +43,15 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/auth_email_block"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/title"
         android:layout_marginTop="70dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
+        android:layout_marginEnd="20dp"
+        android:gravity="center">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,29 +82,149 @@
             android:backgroundTintMode="src_in"
             android:enabled="false"
             android:text="@string/signin_signin_text" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/indicatorEmailScreen"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="15dp"
+            android:visibility="invisible"
+            android:indeterminate="true" />
+
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/signin_entry_with_text"
-        style="@style/TextGrey_SF_15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/signin_with_yandex"
-        android:layout_marginBottom="15dp"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signin_with_yandex"
+    <LinearLayout
+        android:id="@+id/auth_with_block"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="@string/signin_with_yandex_text"
-        style="@style/TextTitle_SF_17sp"
-        android:gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/btn_white"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginBottom="50dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signin_entry_with_text"
+            style="@style/TextGrey_SF_15sp"
+            android:layout_marginBottom="15dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signin_with_yandex"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/signin_with_yandex_text"
+            style="@style/TextTitle_SF_17sp"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/btn_white"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/entry_code"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="100dp"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            style="@style/TextTitle_SF_17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:text="@string/code_with_email_text" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/code_1"
+                style="@style/TextTitle_SF_20sp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/edit_text_grey"
+                android:gravity="center"
+                android:inputType="numberSigned"
+                android:maxLength="1"
+                android:maxLines="1" />
+
+            <EditText
+                android:id="@+id/code_2"
+                style="@style/TextTitle_SF_20sp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/edit_text_grey"
+                android:gravity="center"
+                android:inputType="numberSigned"
+                android:maxLength="1"
+                android:maxLines="1" />
+
+            <EditText
+                android:id="@+id/code_3"
+                style="@style/TextTitle_SF_20sp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/edit_text_grey"
+                android:gravity="center"
+                android:inputType="numberSigned"
+                android:maxLength="1"
+                android:maxLines="1" />
+
+            <EditText
+                android:id="@+id/code_4"
+                style="@style/TextTitle_SF_20sp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/edit_text_grey"
+                android:gravity="center"
+                android:inputType="numberSigned"
+                android:maxLength="1"
+                android:maxLines="1" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/timer_text"
+            style="@style/TextGrey_SF_15sp"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/code_with_email_text" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/indicatorCodeScreen"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="15dp"
+            android:visibility="invisible"
+            android:indeterminate="true" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/back_btn"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:visibility="invisible"
+        android:background="@color/white"
+        android:src="@drawable/back_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
