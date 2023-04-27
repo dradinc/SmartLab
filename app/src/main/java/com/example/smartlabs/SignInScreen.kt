@@ -57,6 +57,7 @@ class SignInScreen : AppCompatActivity() {
     private var callbackSignIn: (()->Unit)?=null
     private var callbackSignInError: (()->Unit)?=null
     private var callbackSignInSaveStatus: (()->Unit)?=null
+    private var callbackErrorResponse: (()->Unit)?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -107,6 +108,11 @@ class SignInScreen : AppCompatActivity() {
         callbackSignIn = {
             binding.indicatorCodeScreen.visibility = View.VISIBLE
             binding.timerText.text = "Провекра кода..."
+        }
+        callbackErrorResponse = {
+            Toast.makeText(this@SignInScreen, "При выполнении произошла ошибка", Toast.LENGTH_LONG).show()
+            binding.indicatorEmailScreen.visibility = View.INVISIBLE
+            binding.indicatorCodeScreen.visibility = View.INVISIBLE
         }
 
 
@@ -169,12 +175,10 @@ class SignInScreen : AppCompatActivity() {
                 .build()
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    AlertDialog.Builder(this@SignInScreen)
-                        .setTitle("Ошибка")
-                        .setMessage("Во время запроса произошла ошибка")
-                        .setNeutralButton("Ок") { _, _ ->
-
-                        }.create().show()
+                    Handler(Looper.getMainLooper()).post {
+                        Log.e("DA NU NAHY", e.toString())
+                        callbackErrorResponse!!.invoke()
+                    }
                 }
 
                 override fun onResponse(call: Call, response: Response) {
@@ -186,22 +190,16 @@ class SignInScreen : AppCompatActivity() {
                         }
                     }
                     else if (response.code == 422) {
-                        AlertDialog.Builder(this@SignInScreen)
-                            .setTitle("Ошибка")
-                            .setMessage("Во время запроса произошла ошибка: ${response.code}")
-                            .setNeutralButton("Ок") { _, _ ->
-
-                            }.create().show()
-                        callbackSendCode!!.invoke()
+                        Handler(Looper.getMainLooper()).post {
+                            callbackErrorResponse!!.invoke()
+                            callbackSendCode!!.invoke()
+                        }
                     }
                     else {
-                        AlertDialog.Builder(this@SignInScreen)
-                            .setTitle("Ошибка")
-                            .setMessage("Во время запроса произошла ошибка: ${response.code}")
-                            .setNeutralButton("Ок") { _, _ ->
-
-                            }.create().show()
-                        callbackSendCode!!.invoke()
+                        Handler(Looper.getMainLooper()).post {
+                            callbackErrorResponse!!.invoke()
+                            callbackSendCode!!.invoke()
+                        }
                     }
                 }
             })
@@ -317,12 +315,9 @@ class SignInScreen : AppCompatActivity() {
                     .build()
                 client.newCall(request).enqueue(object : Callback {
                     override fun onFailure(call: Call, e: IOException) {
-                        AlertDialog.Builder(this@SignInScreen)
-                            .setTitle("Ошибка")
-                            .setMessage("Во время запроса произошла ошибка")
-                            .setNeutralButton("Ок") { _, _ ->
-
-                            }.create().show()
+                        Handler(Looper.getMainLooper()).post {
+                            callbackErrorResponse!!.invoke()
+                        }
                     }
 
                     override fun onResponse(call: Call, response: Response) {
@@ -333,22 +328,14 @@ class SignInScreen : AppCompatActivity() {
                             }
                         }
                         else if (response.code == 422) {
-                            AlertDialog.Builder(this@SignInScreen)
-                                .setTitle("Ошибка")
-                                .setMessage("Во время запроса произошла ошибка: ${response.code}")
-                                .setNeutralButton("Ок") { _, _ ->
-
-                                }.create().show()
-                            callbackReapetSendCodeEnd!!.invoke()
+                            Handler(Looper.getMainLooper()).post {
+                                callbackReapetSendCodeEnd!!.invoke()
+                            }
                         }
                         else {
-                            AlertDialog.Builder(this@SignInScreen)
-                                .setTitle("Ошибка")
-                                .setMessage("Во время запроса произошла ошибка: ${response.code}")
-                                .setNeutralButton("Ок") { _, _ ->
-
-                                }.create().show()
-                            callbackReapetSendCodeEnd!!.invoke()
+                            Handler(Looper.getMainLooper()).post {
+                                callbackReapetSendCodeEnd!!.invoke()
+                            }
                         }
                     }
                 })
@@ -385,7 +372,11 @@ class SignInScreen : AppCompatActivity() {
             .post(body)
             .build()
         client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {}
+            override fun onFailure(call: Call, e: IOException) {
+                Handler(Looper.getMainLooper()).post {
+                    callbackErrorResponse!!.invoke()
+                }
+            }
 
             override fun onResponse(call: Call, response: Response) {
                 if (response.code == 200) {

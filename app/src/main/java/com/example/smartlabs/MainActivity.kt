@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
+import com.example.smartlabs.Common.OnBoardingStatus
 import com.example.smartlabs.Common.SignInStatus
 import com.example.smartlabs.databinding.ActivityMainBinding
 import kotlinx.coroutines.flow.first
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var dataStoreSignInStatus: SignInStatus
+    private lateinit var dataStoreOnBoarding: OnBoardingStatus
     private var signInStatus = false
     private lateinit var signInToken: String
 
@@ -31,7 +33,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         dataStoreSignInStatus = SignInStatus(this)
+        dataStoreOnBoarding = OnBoardingStatus(this)
         lifecycleScope.launch { userData() }
+
+        binding.clearSignInStatus.setOnClickListener {
+            lifecycleScope.launch {
+                dataStoreSignInStatus.setSignInStatus(false, "")
+            }
+        }
+
+        binding.clearOnBoardingStatus.setOnClickListener {
+            lifecycleScope.launch {
+                dataStoreOnBoarding.setOnBoardingStatus(false)
+            }
+        }
     }
 
     private suspend fun userData() {

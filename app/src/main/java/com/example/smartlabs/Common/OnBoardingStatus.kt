@@ -12,25 +12,25 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import java.io.IOException
 
-class OnBoardingStatus(context: Context) {
-    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name="APP_DATA")
-    private var dataStore = context.dataStore
+class OnBoardingStatus(private val context: Context) {
 
     companion object {
+        private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name="APP_DATA")
+
         // Добавляем ключ, по которому будем сохранять данные
         val ON_BOARDING_STATUS = booleanPreferencesKey(name="ON_BOARDING_STATUS")
     }
 
     suspend fun setOnBoardingStatus(isOnBoardingStatus: Boolean) {
         // Функция для сохранения данных по ключу
-        dataStore.edit { preferences ->
+        context.dataStore.edit { preferences ->
             preferences[ON_BOARDING_STATUS] = isOnBoardingStatus
         }
     }
 
     fun getOnBoardingStatus(): Flow<Boolean> {
         // Функция для получения данных по ключу
-        return dataStore.data
+        return context.dataStore.data
             .catch { exception ->
                 if (exception is IOException) { Log.e("DATA_STORE_ERROR", "AAAAAAA") }
                 else { throw exception }
