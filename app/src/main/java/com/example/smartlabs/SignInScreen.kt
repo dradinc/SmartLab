@@ -22,6 +22,7 @@ import com.example.smartlabs.Common.ApiData
 import com.example.smartlabs.Common.OnBoardingStatus
 import com.example.smartlabs.Common.SignInStatus
 import com.example.smartlabs.databinding.ActivitySignInScreenBinding
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import okhttp3.Call
 import okhttp3.Callback
@@ -127,19 +128,7 @@ class SignInScreen : AppCompatActivity() {
 
         // Данные пользователя
         dataStoreSignInStatus = SignInStatus(this)
-        dataStoreSignInStatus.getSignInStatus().asLiveData().observe(this) {
-            signInStatus = it
-            when(it){
-                true -> {
-                    startActivity(Intent(this@SignInScreen, MainActivity::class.java))
-                    finish()
-                }
-                false -> {}
-            }
-        }
-        dataStoreSignInStatus.getSignInToken().asLiveData().observe(this) {
-            signInToken = it
-        }
+        lifecycleScope.launch { userData() }
         callbackSignInSaveStatus = {
             lifecycleScope.launch {
                 dataStoreSignInStatus.setSignInStatus(
@@ -366,6 +355,19 @@ class SignInScreen : AppCompatActivity() {
             }
 
         }.start()
+    }
+
+    private suspend fun userData() {
+        signInStatus = dataStoreSignInStatus.getSignInStatus().first()
+        when(signInStatus){
+            true -> {
+                dataStoreSignInStatus
+                startActivity(Intent(this@SignInScreen, MainActivity::class.java))
+                finish()
+            }
+            false -> {}
+        }
+        signInToken = dataStoreSignInStatus.getSignInToken().first()
     }
 
     private fun checkCode(){
