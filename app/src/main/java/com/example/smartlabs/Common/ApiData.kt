@@ -10,5 +10,8 @@ class ApiData {
         // Данные для авторизации отправляются в header
         const val sendCode = "/sendCode"  // Для получения кода на почту
         const val signIn = "/signin"  // Для авторизации пользователя
+
+        // Получение новостей
+        const val getNews = "/news"
     }
 }
