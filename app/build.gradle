@@ -63,4 +63,7 @@ dependencies {
 
     // OkHTTP
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.10'
+
+    // Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

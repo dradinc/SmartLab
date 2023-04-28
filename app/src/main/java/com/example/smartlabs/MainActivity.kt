@@ -21,12 +21,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-    //private lateinit var dataStoreSignInStatus: SignInStatus
-    //private lateinit var dataStoreOnBoarding: OnBoardingStatus
-    //private var signInStatus = false
-    //private lateinit var signInToken: String
-
-    //private var callbackWriteToken: (()->Unit)?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,41 +32,5 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
         setupWithNavController(binding.bottomNavView, navController)
-
-        /*
-        callbackWriteToken = {
-            binding.simpleText.text = signInToken
-        }
-
-        dataStoreSignInStatus = SignInStatus(this)
-        dataStoreOnBoarding = OnBoardingStatus(this)
-        lifecycleScope.launch { userData() }
-
-        binding.clearSignInStatus.setOnClickListener {
-            lifecycleScope.launch {
-                dataStoreSignInStatus.setSignInStatus(false, "")
-            }
-        }
-
-        binding.clearOnBoardingStatus.setOnClickListener {
-            lifecycleScope.launch {
-                dataStoreOnBoarding.setOnBoardingStatus(false)
-            }
-        }*/
     }
-
-
-
-    /*
-    private suspend fun userData() {
-        signInStatus = dataStoreSignInStatus.getSignInStatus().first()
-        when(signInStatus){
-            true -> {}
-            false -> {}
-        }
-        signInToken = dataStoreSignInStatus.getSignInToken().first()
-        Handler(Looper.getMainLooper()).post {
-            callbackWriteToken!!.invoke()
-        }
-    }*/
 }

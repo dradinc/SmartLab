@@ -47,7 +47,14 @@
     <string name="bottom_nav_result">Результаты</string>
     <string name="bottom_nav_support">Поддержка</string>
     <string name="bottom_nav_profile">Профиль</string>
-
+    <string name="search_hint_main_fragment">Искать анализы</string>
+    <string name="main_fragment_title_news_block">Акции и новости</string>
+    <string name="title_text_example">Заголовок</string>
+    <string name="text_price_example">9999</string>
+    <string name="rus_rub">₽</string>
+    <string name="description_text_example">Описание</string>
+    <string name="main_fragment_title_catalog_block">Каталог анализов</string>
+    <string name="cotalog_tovar_add_text">Добавить</string>
 
 
 </resources>

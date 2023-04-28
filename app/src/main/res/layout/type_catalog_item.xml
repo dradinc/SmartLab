@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title"
+    android:layout_width="wrap_content"
+    android:layout_height="48dp"
+    android:layout_marginStart="20dp"
+    android:background="@drawable/type_catalog_item_bg"
+    android:gravity="center"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:text="@string/title_text_example"
+    android:fontFamily="@font/sf_pro_display_medium"
+    android:textColor="#7E7E9A"
+    android:textSize="15sp" />
