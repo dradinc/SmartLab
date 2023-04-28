@@ -15,6 +15,7 @@
     <color name="smartlab_lightgrey">#F5F5F9</color>
     <color name="smartlab_border_grey">#EBEBEB</color>
     <color name="smartlab_green">#00B712</color>
+    <color name="smartlab_nav_menu_grey">#B8C1CC</color>
 
     <color name="my_red_bg_error">#F8B4AB</color>
     <color name="my_red_border_error">#FE7070</color>

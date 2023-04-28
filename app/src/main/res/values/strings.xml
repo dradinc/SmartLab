@@ -27,5 +27,27 @@
     <string name="signin_with_yandex_text">Войти с Яндекс</string>
     <string name="code_with_email_text">Введите код из E-mail</string>
     <!-- END  SignIn Screen -->
+    <!-- CodeScreen -->
+    <string name="title_code_screen_create">Создайте пароль</string>
+    <string name="description_code_screen">Для защиты Ваших персональных данных</string>
+    <string name="title_code_screen">Введите пароль</string>
+    <string name="code_1">1</string>
+    <string name="code_2">2</string>
+    <string name="code_3">3</string>
+    <string name="code_4">4</string>
+    <string name="code_5">5</string>
+    <string name="code_6">6</string>
+    <string name="code_7">7</string>
+    <string name="code_8">8</string>
+    <string name="code_9">9</string>
+    <string name="code_0">0</string>
+
+    <!-- Bottom nav menu -->
+    <string name="bottom_nav_main">Анализы</string>
+    <string name="bottom_nav_result">Результаты</string>
+    <string name="bottom_nav_support">Поддержка</string>
+    <string name="bottom_nav_profile">Профиль</string>
+
+
 
 </resources>

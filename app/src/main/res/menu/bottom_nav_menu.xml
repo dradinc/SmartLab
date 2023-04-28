@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mainFragment"
+        android:title="@string/bottom_nav_main"
+        android:icon="@drawable/main_nav_ico"/>
+    <item
+        android:id="@+id/resultFragment"
+        android:title="@string/bottom_nav_result"
+        android:icon="@drawable/result_nav_ico"/>
+    <item
+        android:id="@+id/supportFragment"
+        android:title="@string/bottom_nav_support"
+        android:icon="@drawable/support_nav_ico"/>
+    <item
+        android:id="@+id/profileFragment"
+        android:title="@string/bottom_nav_profile"
+        android:icon="@drawable/user_nav_ico"/>
+</menu>

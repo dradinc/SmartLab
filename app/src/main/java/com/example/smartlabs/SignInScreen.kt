@@ -2,7 +2,6 @@ package com.example.smartlabs
 
 import android.content.Intent
 import android.graphics.PorterDuff
-import android.opengl.Visibility
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
@@ -13,9 +12,7 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.convertTo
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.example.smartlabs.Common.ApiData
@@ -348,7 +345,6 @@ class SignInScreen : AppCompatActivity() {
         signInStatus = dataStoreSignInStatus.getSignInStatus().first()
         when(signInStatus){
             true -> {
-                dataStoreSignInStatus
                 startActivity(Intent(this@SignInScreen, MainActivity::class.java))
                 finish()
             }
