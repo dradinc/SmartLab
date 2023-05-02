@@ -13,5 +13,6 @@ class ApiData {
 
         // Получение новостей
         const val getNews = "/news"
+        const val getCatalog = "/catalog"
     }
 }
